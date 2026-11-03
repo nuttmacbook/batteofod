@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dungeon RPG OD</title>
+  <meta name="description" content="An endless idle dungeon crawler with diablo-style loot.">
+  <meta name="theme-color" content="#0b0910">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- ============ TITLE ============ -->
+  <div id="title-screen" class="screen title-screen" hidden>
+    <div class="embers" aria-hidden="true"></div>
+    <div class="title-card">
+      <div class="title-crest">⚔️</div>
+      <h1 class="title-logo">Dungeon RPG <span>OD</span></h1>
+      <p class="title-tag">An endless dungeon, on demand.</p>
+      <form id="name-form" class="name-form" autocomplete="off">
+        <input id="name-input" maxlength="16" placeholder="Name your hero" required>
+        <button class="btn btn-gold" type="submit">Enter the Dungeon</button>
+      </form>
+      <p class="title-foot">Climb floors · Loot gear · Die · Rise again</p>
+    </div>
+  </div>
+
+  <!-- ============ GAME ============ -->
+  <div id="game-screen" class="screen game-screen" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="brand-ico">⚔️</span><span>Dungeon RPG <b>OD</b></span></div>
+      <div class="top-info">
+        <span class="chip" id="t-floor">Floor 1</span>
+        <span class="chip chip-curse" id="t-curse" hidden></span>
+        <span class="chip chip-gold" id="t-gold">🪙 0</span>
+        <span class="chip chip-time" id="t-time">00:00</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" id="btn-inv" title="Inventory">🎒<i class="dot" id="inv-dot" hidden></i></button>
+        <button class="icon-btn" id="btn-settings" title="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel char-panel">
+        <div class="hero-head">
+          <div class="hero-avatar">🧝</div>
+          <div class="hero-id">
+            <div class="hero-name" id="c-name">Hero</div>
+            <div class="hero-lv" id="c-level">Lv. 1</div>
+          </div>
+        </div>
+        <div class="bar bar-hp"><div class="fill" id="c-hp-fill"></div><span id="c-hp-text">0 / 0</span></div>
+        <div class="bar bar-exp"><div class="fill" id="c-exp-fill"></div><span id="c-exp-text">EXP 0%</span></div>
+        <div class="stat-grid" id="c-stats"></div>
+        <div class="sub-head"><h4>Equipment</h4><small id="c-eq-count">0/6</small></div>
+        <div class="equip-grid" id="c-equip"></div>
+      </section>
+
+      <section class="panel stage-panel">
+        <div class="stage" id="stage"></div>
+        <div class="stage-actions">
+          <button class="btn btn-gold btn-lg" id="btn-explore">🔦 Explore</button>
+          <button class="btn btn-toggle" id="btn-auto">⏸ Auto: OFF</button>
+          <button class="btn btn-ghost" id="btn-speed" title="Battle speed">1x</button>
+        </div>
+      </section>
+
+      <section class="panel log-panel">
+        <div class="sub-head"><h4>Dungeon Log</h4><small id="c-kills">0 kills</small></div>
+        <ul class="log" id="log"></ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- guild hall (rendered by js) -->
+  <div id="guild" class="guild" hidden></div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script type="module" src="/js/game.js"></script>
+</body>
+</html>

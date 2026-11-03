@@ -1,0 +1,13 @@
+{
+  "name": "dungeon-rpg-od",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dungeon RPG OD - idle dungeon crawler",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.35.0"
+  }
+}
