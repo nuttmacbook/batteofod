@@ -1,1 +1,23 @@
+# dependencies
 node_modules/
+package-lock.json
+
+# environment / secrets (Upstash token, ROOT_KEY)
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel/
+.output/
+
+# logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
